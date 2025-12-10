@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamad Amirul - Cybersecurity Resume</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #00ffa3;
+            --accent2: #2dd4ff;
+            --text: #2c3e50;
+            --light: #ecf0f1;
+            --muted: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: var(--text);
+            background: #f8f9fa;
+            font-size: 14px;
+        }
+        
+        .resume {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 1122px; /* A4 height */
+        }
+        
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .name {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        
+        .title {
+            font-size: 1em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85em;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            margin-top: 2px;
+            min-width: 16px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            color: var(--accent);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-bottom: 4px;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+            line-height: 1.3;
+        }
+        
+        .education-school {
+            font-size: 0.8em;
+            color: var(--accent);
+            margin-bottom: 2px;
+        }
+        
+        .cert-item {
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            padding-left: 8px;
+            border-left: 2px solid var(--accent);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 30px;
+        }
+        
+        .main-section {
+            margin-bottom: 20px;
+        }
+        
+        .main-section-title {
+            color: var(--primary);
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .main-section-title i {
+            color: var(--accent);
+        }
+        
+        .summary {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: var(--text);
+        }
+        
+        .project-item {
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+            font-size: 0.95em;
+            display: flex;
+            justify-content: between;
+        }
+        
+        .project-description {
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        
+        .tech-tag {
+            background: #e8f4fd;
+            color: var(--secondary);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+        
+        .achievement-item {
+            margin-bottom: 6px;
+            padding-left: 12px;
+            position: relative;
+            font-size: 0.85em;
+        }
+        
+        .achievement-item:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .resume {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .resume {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+                min-height: auto;
+            }
+            
+            .main-content {
+                padding: 25px;
+            }
+            
+            .sidebar {
+                padding: 25px 15px;
+            }
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+        }
+        
+        .no-print {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="resume">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <div class="name">MOHAMAD AMIRUL BIN ABDUL RASHID</div>
+                <div class="title">Cybersecurity Specialist</div>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>amirulrashid358@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+60 11-1003 3893</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Malaysia</span>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="section">
+                <div class="section-title">EDUCATION</div>
+                <div class="education-item">
+                    <div class="education-degree">Bachelor of Science (Hons) in Cybersecurity</div>
+                    <div class="education-school">UNITAR International University</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-degree">Diploma in Information Technology</div>
+                    <div class="education-school">Politeknik Muadzam Shah</div>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="section">
+                <div class="section-title">TECHNICAL SKILLS</div>
+                <div class="skill-items">
+                    <div class="skill-tag">Penetration Testing</div>
+                    <div class="skill-tag">Vulnerability Assessment</div>
+                    <div class="skill-tag">Network Security</div>
+                    <div class="skill-tag">Digital Forensics</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">Kali Linux</div>
+                    <div class="skill-tag">Metasploit</div>
+                    <div class="skill-tag">Nmap</div>
+                    <div class="skill-tag">Burp Suite</div>
+                    <div class="skill-tag">Wireshark</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">AWS Security</div>
+                    <div class="skill-tag">Machine Learning</div>
+                    <div class="skill-tag">SIEM</div>
+                    <div class="skill-tag">Incident Response</div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="section">
+                <div class="section-title">CERTIFICATIONS</div>
+                <div class="cert-item">CompTIA Security+ (In Progress)</div>
+                <div class="cert-item">CEH (Planned)</div>
+                <div class="cert-item">AWS Cloud Practitioner (Planned)</div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="section">
+                <div class="section-title">ACHIEVEMENTS</div>
+                <div class="achievement-item">40% improvement in vulnerability detection with AI tools</div>
+                <div class="achievement-item">Built enterprise-level security lab</div>
+                <div class="achievement-item">Active CTF competitor</div>
+                <div class="achievement-item">Open-source contributor</div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Professional Summary -->
+            <div class="main-section">
+                <div class="main-section-title">
+                    <i class="fas fa-user"></i>
+                    PROFESSIONAL SUMMARY
+                </div>
+                <div class="summary">
+                    Cybersecurity professional with strong educational foundation in information technology and cybersecurity. 
+                    Currently pursuing Bachelor's degree in Cybersecurity at UNITAR International University with prior Diploma 
+                    in Information Technology from Politeknik Muadzam Shah. Specializing in ethical hacking, AI-driven security 
+                    solutions, and network defense. Proven expertise in developing innovative security frameworks, conducting 
+                    comprehensive vulnerability assessments, and implementing automated threat detection systems.
+                </div>
+            </div>
+            
+            <!-- Projects -->
+            <div class="main-section">
+                <div class="main-section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    CYBERSECURITY PROJECTS
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">AI-Powered Vulnerability Scanner</div>
+                    <div class="project-description">
+                        Machine learning-based tool that prioritizes security risks using contextual analysis and impact assessment. 
+                        Integrated with Nmap for automated network scanning and risk scoring.
+                    </div>
+                    <div class="project-tech">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Scikit-learn</div>
+                        <div class="tech-tag">Nmap</div>
+                        <div class="tech-tag">REST API</div>
+                        <div class="tech-tag">Machine Learning</div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Network Security Monitoring Lab</div>
+                    <div class="project-description">
+                        Enterprise-level homelab with SIEM integration, IDS/IPS systems, and real-time traffic analysis. 
+                        Configured pfSense, ELK Stack, and Snort for comprehensive security monitoring.
+                    </div>
+                    <div class="project-tech">
+                        <div class="tech-tag">pfSense</div>
+                        <div class="tech-tag">ELK Stack</div>
+                        <div class="tech-tag">Snort</div>
+                        <div class="tech-tag">Wireshark</div>
+                        <div class="tech-tag">VMware</div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Web App Penetration Testing Framework</div>
+                    <div class="project-description">
+                        Automated testing framework for web applications with comprehensive reporting. 
+                        Focused on OWASP Top 10 vulnerabilities including SQL injection, XSS, and CSRF attacks.
+                    </div>
+                    <div class="project-tech">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Burp Suite</div>
+                        <div class="tech-tag">OWASP</div>
+                        <div class="tech-tag">SQL Injection</div>
+                        <div class="tech-tag">XSS</div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Cloud Security Assessment Toolkit</div>
+                    <div class="project-description">
+                        Automated security assessment tools for AWS and Azure environments. 
+                        Identifies misconfigurations in S3 buckets, IAM policies, and network security groups.
+                    </div>
+                    <div class="project-tech">
+                        <div class="tech-tag">AWS CLI</div>
+                        <div class="tech-tag">Azure PowerShell</div>
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Docker</div>
+                        <div class="tech-tag">Cloud Security</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Expertise -->
+            <div class="main-section">
+                <div class="main-section-title">
+                    <i class="fas fa-cogs"></i>
+                    TECHNICAL EXPERTISE
+                </div>
+                <div class="project-item">
+                    <div class="project-title">Security Tools & Platforms</div>
+                    <div class="project-tech">
+                        <div class="tech-tag">Metasploit</div>
+                        <div class="tech-tag">Nessus</div>
+                        <div class="tech-tag">Burp Suite</div>
+                        <div class="tech-tag">Wireshark</div>
+                        <div class="tech-tag">Kali Linux</div>
+                        <div class="tech-tag">VMware ESXi</div>
+                        <div class="tech-tag">Docker</div>
+                        <div class="tech-tag">Cisco Packet Tracer</div>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">Security Domains</div>
+                    <div class="project-tech">
+                        <div class="tech-tag">Penetration Testing</div>
+                        <div class="tech-tag">Vulnerability Management</div>
+                        <div class="tech-tag">Digital Forensics</div>
+                        <div class="tech-tag">Incident Response</div>
+                        <div class="tech-tag">Network Defense</div>
+                        <div class="tech-tag">Cloud Security</div>
+                        <div class="tech-tag">AI/ML Security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Download Button -->
+    <div class="no-print">
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#" class="download-btn" onclick="window.print()">
+                <i class="fas fa-download"></i> Download PDF Version
+            </a>
+            <p style="color: var(--muted); margin-top: 10px; font-size: 0.9em;">
+                Click above to print or save as PDF
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
